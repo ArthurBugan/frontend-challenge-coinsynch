@@ -1,9 +1,17 @@
+import Navbar from "@components/navbar/Navbar";
+import Container from "@components/Container";
+
 export default function Home() {
   return (
-    <main className="container mx-auto px-4">
-      <div>
-        <p>Hello world</p>
-      </div>
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <Container>
+          <div>
+            <p>Hello world</p>
+          </div>
+        </Container>
+      </main>
+    </>
   );
 }

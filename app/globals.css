@@ -23,7 +23,8 @@
     @apply text-base text-gray;
   }
 
-  label {
+  label,
+  a {
     @apply text-sm text-gray;
   }
 
