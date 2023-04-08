@@ -22,7 +22,7 @@ module.exports = {
         }
       },
       animation: {
-        'scrolling-left': 'scroll-left 30s linear infinite',
+        'scrolling-left': 'scroll-left 15s linear infinite',
       },
       boxShadow: {
         "menu": "0px 4px 8px rgba(77, 77, 77, 0.1)",

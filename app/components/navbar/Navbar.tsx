@@ -53,7 +53,7 @@ const Navbar: React.FC = ({}) => {
 
       <div className="flex items-center justify-center border-t-2 border-secondary-200 py-2 lg:hidden">
         <Container>
-          <div className="mx-auto overflow-hidden md:w-96">
+          <div className="mx-auto overflow-hidden sm:w-96">
             <CoinCarrousel />
           </div>
         </Container>

@@ -1,22 +1,16 @@
-interface CoinProps {
-  coin: string;
-  price: string;
-  variation: string;
-}
+import CoinVariation from "../CoinVariation";
+import type { Coin } from "./CoinCarrousel";
 
-const CoinCarrouselItem: React.FC<CoinProps> = (props) => {
-  const { coin, price, variation } = props;
+const CoinCarrouselItem: React.FC<Coin> = (props) => {
+  const { price_usd, asset_id } = props;
 
   return (
     <div className="flex flex-row items-center justify-center gap-x-2">
-      <span className="whitespace-nowrap text-secondary-800">{coin}</span>
-      <span className="whitespace-nowrap">{price}</span>
-      <span
-        data-price={`${variation[0]}`}
-        className="whitespace-nowrap data-[price='+']:text-tertiary-700 data-[price='-']:text-quartenary-700"
-      >
-        {variation}
+      <span className="whitespace-nowrap">{asset_id}</span>
+      <span className="whitespace-nowrap text-secondary-800">
+        R$ {price_usd?.toFixed(2)}
       </span>
+      <CoinVariation name={asset_id} />
     </div>
   );
 };
