@@ -8,6 +8,7 @@ const Logo = () => {
 
   return (
     <Image
+      priority
       onClick={() => router.push("/")}
       className="cursor-pointer"
       src="/images/logo.svg"

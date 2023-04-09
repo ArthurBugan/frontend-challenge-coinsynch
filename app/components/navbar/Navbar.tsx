@@ -1,4 +1,6 @@
 import Container from "@components/Container";
+import SignIn from "@components/button/SignIn";
+import Register from "@components/button/Register";
 
 import Logo from "./Logo";
 import MenuItem from "./MenuItem";
@@ -15,10 +17,10 @@ const Navbar: React.FC = ({}) => {
 
             <div className="z-10 flex md:order-3">
               <div className="hidden md:block">
-                <p>sign up</p>
+                <SignIn />
               </div>
               <div className="ml-6 hidden md:block">
-                <p>sign in</p>
+                <Register />
               </div>
             </div>
 

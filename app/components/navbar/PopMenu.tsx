@@ -4,7 +4,7 @@ import { CgMenuRound } from "react-icons/cg";
 import { Popover } from "@headlessui/react";
 
 interface PopMenuProps {
-  children: React.ReactElement;
+  children: JSX.Element;
 }
 
 const PopMenu: React.FC<PopMenuProps> = (props) => {

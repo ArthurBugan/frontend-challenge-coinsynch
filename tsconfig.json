@@ -29,6 +29,12 @@
       ],
       "@components/*": [
         "./app/components/*"
+      ],
+      "@hooks/*": [
+        "./app/hooks/*"
+      ],
+      "@provider/*": [
+        "./app/provider/*"
       ]
     }
   },

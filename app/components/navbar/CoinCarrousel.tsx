@@ -31,10 +31,15 @@ const getCoins = async () => {
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    return [];
+    return Promise.resolve([]);
   }
 
   const coins: Promise<Coin[]> = await res.json();
+
+  if (!Array.isArray(coins)) {
+    return [];
+  }
+
   return coins;
 };
 
