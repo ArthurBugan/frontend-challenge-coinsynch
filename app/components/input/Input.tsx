@@ -14,9 +14,12 @@ import {
   AiOutlineEyeInvisible,
 } from "react-icons/ai";
 
+import { IconType } from "react-icons";
+
 interface InputProps extends UseControllerProps {
   name: string;
   label?: string;
+  Icon?: IconType;
   type?: string;
   placeholder: string;
   disabled?: boolean;
@@ -25,20 +28,22 @@ interface InputProps extends UseControllerProps {
 }
 
 const Input: React.FC<InputProps> = (props) => {
-  const formContext = useFormContext();
-  const [passwordVisibility, changePasswordVisibility] =
-    useState<boolean>(true);
-  const { name, label, rules, type, formatPrice, ...inputProps } = props;
+  const { name, label, rules, type, formatPrice, Icon, ...inputProps } = props;
 
-  const togglePassword = () => {
-    changePasswordVisibility((prevProps) => !prevProps);
-  };
+  const formContext = useFormContext();
 
   const {
     field,
     fieldState: { invalid, isTouched, isDirty, error },
-    formState: { isSubmitted },
+    formState: { isSubmitting },
   } = useController({ name, rules });
+
+  const [passwordVisibility, changePasswordVisibility] =
+    useState<boolean>(true);
+
+  const togglePassword = () => {
+    changePasswordVisibility((prevProps) => !prevProps);
+  };
 
   if (!formContext || !name) {
     const msg = !formContext
@@ -48,11 +53,13 @@ const Input: React.FC<InputProps> = (props) => {
     return null;
   }
 
-  const hasIcon = formatPrice || type === "email" || type === "password";
+  const hasIcon =
+    formatPrice || type === "email" || type === "password" || Icon;
 
   return (
     <div className="relative h-12 w-full">
       <span className="absolute inset-y-0 left-0 flex items-center">
+        {Icon && <Icon className="ml-4 h-5 w-5 text-secondary-300" />}
         {formatPrice && (
           <AiOutlineDollar className="ml-4 h-5 w-5 text-secondary-300" />
         )}
@@ -65,6 +72,7 @@ const Input: React.FC<InputProps> = (props) => {
       </span>
       <input
         name={name}
+        disabled={isSubmitting}
         onChange={field.onChange}
         onBlur={field.onBlur}
         value={field.value || ""}

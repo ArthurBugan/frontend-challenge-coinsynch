@@ -47,4 +47,8 @@
   button.ghost > span {
     @apply text-gray;
   }
+
+  input:checked + svg {
+    @apply block;
+  }
 }

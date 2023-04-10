@@ -2,6 +2,7 @@ import "./globals.css";
 
 import ClientOnly from "@components/ClientOnly";
 import ModalProvider from "@provider/ModalProvider";
+import ToastProvider from "@provider/ToastProvider";
 
 export const metadata = {
   title: "Welcome to CoinSynch!",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: JSX.Element }) {
       <body className={roboto.variable}>
         <ClientOnly>
           <ModalProvider />
+          <ToastProvider />
         </ClientOnly>
 
         <main>{children}</main>

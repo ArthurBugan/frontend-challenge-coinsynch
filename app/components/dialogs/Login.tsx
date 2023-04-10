@@ -1,12 +1,12 @@
 "use client";
 
 import { useForm, FormProvider } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import Dialog from "./Dialog";
 import Input from "@components/input/Input";
-import Checkbox from "@components/input/Checkbox";
 import Button from "@components/buttons/Button";
 import useLoginModal from "@hooks/useLoginModal";
 import useRegisterModal from "@hooks/useRegisterModal";
@@ -14,9 +14,6 @@ import useRegisterModal from "@hooks/useRegisterModal";
 const schema = z.object({
   email: z.string().email(),
   password: z.string().min(8, { message: "Too short" }),
-  terms: z.literal(true, {
-    errorMap: () => ({ message: "You must accept Terms and Conditions" }),
-  }),
 });
 
 export type Schema = z.infer<typeof schema>;
@@ -26,11 +23,23 @@ const Modal: React.FC = () => {
   const register = useRegisterModal();
 
   const { ...methods } = useForm<Schema>({
+    mode: "all",
+    shouldFocusError: true,
+    shouldUnregister: true,
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = (data: Schema) => {
-    console.log(data);
+  const onSubmit = async (data: Schema) => {
+    await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(null);
+      }, 2000);
+    });
+
+    toast.success("Sign in successful! Welcome.");
+    setTimeout(() => {
+      login.onClose();
+    }, 300);
   };
 
   const openSignUp = () => {
@@ -47,10 +56,7 @@ const Modal: React.FC = () => {
         </span>
       </h4>
       <FormProvider {...methods}>
-        <form
-          className="flex flex-col items-center gap-y-6"
-          onSubmit={methods.handleSubmit(onSubmit)}
-        >
+        <form className="flex flex-col items-center gap-y-6">
           <Input placeholder="Email" name="email" type="email" />
           <Input placeholder="Password" name="password" type="password" />
 
@@ -62,7 +68,8 @@ const Modal: React.FC = () => {
             type="button"
             onClick={methods.handleSubmit(onSubmit)}
             title="Sign in"
-            className="w-full"
+            className="w-full disabled:bg-primary-200"
+            disabled={methods.formState.isSubmitting}
           />
 
           <label>

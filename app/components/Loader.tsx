@@ -2,7 +2,9 @@ import { AiOutlineLoading } from "react-icons/ai";
 
 const Loader = () => {
   return (
-    <AiOutlineLoading className="mx-3 h-4 w-4 animate-spin text-primary-500" />
+    <div className="inline-block">
+      <AiOutlineLoading className="mx-3 h-full w-4 animate-spin text-white" />
+    </div>
   );
 };
 

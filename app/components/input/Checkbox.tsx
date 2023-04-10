@@ -6,6 +6,8 @@ import {
   UseControllerProps,
 } from "react-hook-form";
 
+import { CgCheck } from "react-icons/cg";
+
 interface InputProps extends UseControllerProps {
   name: string;
   label?: string | JSX.Element;
@@ -23,7 +25,7 @@ const Checkbox: React.FC<InputProps> = (props) => {
   const {
     field,
     fieldState: { invalid, isTouched, isDirty, error },
-    formState: { isSubmitted },
+    formState: { isSubmitting },
   } = useController({ name, rules });
 
   if (!formContext || !name) {
@@ -37,16 +39,19 @@ const Checkbox: React.FC<InputProps> = (props) => {
   return (
     <div className="relative h-12 w-full">
       <div>
-        <label className="inline-flex">
+        <label className="relative inline-flex cursor-pointer ">
           <input
             name={name}
+            disabled={isSubmitting}
             onChange={field.onChange}
             onBlur={field.onBlur}
             value={field.value || false}
+            checked={field.value || false}
             {...inputProps}
             type="checkbox"
-            className="bg-gray-100 border-primary-50 h-4 w-4 rounded border text-primary-500 accent-primary-500 focus:ring-0"
+            className="h-4 w-6 appearance-none rounded border-2 border-primary-500 text-primary-500 accent-primary-500 checked:bg-primary-500 focus:ring-0 disabled:cursor-not-allowed disabled:opacity-70"
           />
+          <CgCheck className="absolute -left-[1px] -top-[1px] hidden text-xl text-secondary-500 disabled:cursor-not-allowed disabled:opacity-70" />
           <span className="ml-4">{label}</span>
         </label>
       </div>
