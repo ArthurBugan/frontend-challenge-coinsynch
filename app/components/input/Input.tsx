@@ -1,11 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import {
   useController,
   useFormContext,
   UseControllerProps,
 } from "react-hook-form";
-import { AiOutlineDollar, AiOutlineMail } from "react-icons/ai";
+import {
+  AiOutlineDollar,
+  AiOutlineMail,
+  AiOutlineLock,
+  AiOutlineEye,
+  AiOutlineEyeInvisible,
+} from "react-icons/ai";
 
 interface InputProps extends UseControllerProps {
   name: string;
@@ -19,7 +26,13 @@ interface InputProps extends UseControllerProps {
 
 const Input: React.FC<InputProps> = (props) => {
   const formContext = useFormContext();
+  const [passwordVisibility, changePasswordVisibility] =
+    useState<boolean>(true);
   const { name, label, rules, type, formatPrice, ...inputProps } = props;
+
+  const togglePassword = () => {
+    changePasswordVisibility((prevProps) => !prevProps);
+  };
 
   const {
     field,
@@ -35,7 +48,7 @@ const Input: React.FC<InputProps> = (props) => {
     return null;
   }
 
-  const hasIcon = formatPrice || type === "email";
+  const hasIcon = formatPrice || type === "email" || type === "password";
 
   return (
     <div className="relative h-12 w-full">
@@ -46,6 +59,9 @@ const Input: React.FC<InputProps> = (props) => {
         {type === "email" && (
           <AiOutlineMail className="ml-4 h-5 w-5 text-secondary-300" />
         )}
+        {type === "password" && (
+          <AiOutlineLock className="ml-4 h-5 w-5 text-secondary-300" />
+        )}
       </span>
       <input
         name={name}
@@ -53,7 +69,7 @@ const Input: React.FC<InputProps> = (props) => {
         onBlur={field.onBlur}
         value={field.value || ""}
         {...inputProps}
-        type={type}
+        type={!passwordVisibility ? "text" : type}
         className={`
           peer
           h-full
@@ -61,7 +77,7 @@ const Input: React.FC<InputProps> = (props) => {
           rounded-md
           border-2 
           bg-white
-         py-4
+          py-4
           font-light
           outline-none
           transition
@@ -74,6 +90,20 @@ const Input: React.FC<InputProps> = (props) => {
           ${error ? "focus:border-rose-500" : "focus:border-secondary-500"}
         `}
       />
+      <span className="absolute inset-y-0 right-0 flex items-center">
+        {type === "password" && passwordVisibility && (
+          <AiOutlineEye
+            onClick={togglePassword}
+            className="mr-4 h-5 w-5 text-secondary-300"
+          />
+        )}
+        {type === "password" && !passwordVisibility && (
+          <AiOutlineEyeInvisible
+            onClick={togglePassword}
+            className="mr-4 h-5 w-5 text-secondary-300"
+          />
+        )}
+      </span>
       <label
         className={`
           text-md 
