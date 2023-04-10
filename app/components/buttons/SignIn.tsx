@@ -3,7 +3,7 @@
 import Button from "./Button";
 import useLoginModal from "@hooks/useLoginModal";
 
-const SignInButton = () => {
+const SignUpButton = () => {
   const loginModal = useLoginModal();
 
   return (
@@ -11,4 +11,4 @@ const SignInButton = () => {
   );
 };
 
-export default SignInButton;
+export default SignUpButton;

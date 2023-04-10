@@ -1,13 +1,15 @@
 import Container from "@components/Container";
-import SignIn from "@components/button/SignIn";
-import Register from "@components/button/Register";
+import SignIn from "@components/buttons/SignIn";
+import Register from "@components/buttons/Register";
 
 import Logo from "./Logo";
-import MenuItem from "./MenuItem";
+import MenuItem from "@components/menu/MenuItem";
+import MenuItemSignIn from "@components/menu/SignIn";
+import MenuItemSignUp from "@components/menu/SignUp";
 import PopMenu from "./PopMenu";
 import CoinCarrousel from "./CoinCarrousel";
 
-const Navbar: React.FC = ({}) => {
+const Navbar = () => {
   return (
     <header className="shadow-menu lg:shadow-none">
       <nav>
@@ -25,13 +27,12 @@ const Navbar: React.FC = ({}) => {
             </div>
 
             <PopMenu>
-              <div className="fixed right-4 z-10 grid grid-cols-1 rounded-md bg-white p-5 shadow-md">
-                <div className="my-3">
-                  <MenuItem label="About Us" href="#about-us" />
-                </div>
-                <div className="my-3">
-                  <MenuItem label="Top Cryptos" href="#top-cryptos" />
-                </div>
+              <div className="fixed right-4 z-10 grid grid-cols-1 space-y-2 rounded-md bg-white p-5 shadow-md">
+                <MenuItemSignIn />
+                <MenuItemSignUp />
+
+                <MenuItem label="About Us" href="#about-us" />
+                <MenuItem label="Top Cryptos" href="#top-cryptos" />
               </div>
             </PopMenu>
 

@@ -1,5 +1,8 @@
 import "./globals.css";
 
+import ClientOnly from "@components/ClientOnly";
+import ModalProvider from "@provider/ModalProvider";
+
 export const metadata = {
   title: "Welcome to CoinSynch!",
   description: "The best place to trade crypto.",
@@ -15,8 +18,14 @@ const roboto = Roboto({
 
 export default function RootLayout({ children }: { children: JSX.Element }) {
   return (
-    <html lang="en" className={roboto.variable}>
-      <body>{children}</body>
+    <html lang="en">
+      <body className={roboto.variable}>
+        <ClientOnly>
+          <ModalProvider />
+        </ClientOnly>
+
+        <main>{children}</main>
+      </body>
     </html>
   );
 }

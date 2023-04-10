@@ -1,7 +1,6 @@
 "use client";
 
 import { Dialog } from "@headlessui/react";
-import useLoginModal from "@hooks/useLoginModal";
 
 interface DialogProps {
   bodyContent: JSX.Element;
@@ -10,7 +9,6 @@ interface DialogProps {
 }
 
 const Modal: React.FC<DialogProps> = (props) => {
-  const loginModal = useLoginModal();
   const { bodyContent, open, onClose } = props;
 
   return (

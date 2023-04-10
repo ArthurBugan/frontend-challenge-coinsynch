@@ -1,7 +1,7 @@
 "use client";
 
-import LoginModal from "@components/dialog/Login";
-import RegisterModal from "@components/dialog/Register";
+import LoginModal from "@components/dialogs/Login";
+import RegisterModal from "@components/dialogs/Register";
 
 const ModalsProvider = () => {
   return (

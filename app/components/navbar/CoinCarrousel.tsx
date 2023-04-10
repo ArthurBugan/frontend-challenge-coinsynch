@@ -31,7 +31,7 @@ const getCoins = async () => {
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    return Promise.resolve([]);
+    return await Promise.resolve([]);
   }
 
   const coins: Promise<Coin[]> = await res.json();
