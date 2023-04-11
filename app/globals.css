@@ -32,20 +32,24 @@
     @apply text-xs text-gray;
   }
 
+  button {
+    @apply h-8;
+  }
+
   button.primary {
-    @apply rounded-[32px] bg-primary-500 px-6 py-2 hover:bg-primary-600;
+    @apply flex items-center justify-center rounded-[32px] bg-primary-500 hover:bg-primary-600;
   }
 
   button.primary > span {
-    @apply text-white;
+    @apply text-sm text-white;
   }
 
   button.ghost {
-    @apply rounded-[32px] bg-transparent px-6 py-2 hover:bg-primary-100;
+    @apply rounded-[32px] bg-transparent hover:bg-primary-100;
   }
 
   button.ghost > span {
-    @apply text-gray;
+    @apply text-sm text-gray;
   }
 
   input:checked + svg {

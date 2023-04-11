@@ -49,9 +49,9 @@ const Checkbox: React.FC<InputProps> = (props) => {
             checked={field.value || false}
             {...inputProps}
             type="checkbox"
-            className="h-4 w-6 appearance-none rounded border-2 border-primary-500 text-primary-500 accent-primary-500 checked:bg-primary-500 focus:ring-0 disabled:cursor-not-allowed disabled:opacity-70"
+            className="h-[16px] w-[20px] appearance-none rounded border-2 border-primary-500 text-primary-500 accent-primary-500 checked:bg-primary-500 focus:ring-0 disabled:cursor-not-allowed disabled:opacity-70"
           />
-          <CgCheck className="absolute -left-[1px] -top-[1px] hidden text-xl text-secondary-500 disabled:cursor-not-allowed disabled:opacity-70" />
+          <CgCheck className="absolute -left-[2px] -top-[1px] hidden text-xl text-secondary-500 disabled:cursor-not-allowed disabled:opacity-70" />
           <span className="ml-4">{label}</span>
         </label>
       </div>

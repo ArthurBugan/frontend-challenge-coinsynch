@@ -12,7 +12,10 @@ const PopMenu: React.FC<PopMenuProps> = (props) => {
 
   return (
     <Popover className="relative md:hidden">
-      <Popover.Button className="focus:outline-none">
+      <Popover.Button
+        className="focus:outline-none"
+        aria-label="navbar navigation"
+      >
         <CgMenuRound className="h-7 w-7 text-secondary-500 hover:text-secondary-600" />
       </Popover.Button>
       <Popover.Panel>{children}</Popover.Panel>

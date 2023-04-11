@@ -1,6 +1,7 @@
 "use client";
 
 import { Dialog } from "@headlessui/react";
+import { GrClose } from "react-icons/gr";
 
 interface DialogProps {
   bodyContent: JSX.Element;
@@ -16,7 +17,10 @@ const Modal: React.FC<DialogProps> = (props) => {
       <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <Dialog.Panel className="w-full max-w-sm rounded bg-white p-4 md:p-6 lg:p-8 xl:max-w-md">
-          {bodyContent}
+          <>
+            <GrClose className="ml-auto h-4 w-4" onClick={onClose} />
+            {bodyContent}
+          </>
         </Dialog.Panel>
       </div>
     </Dialog>

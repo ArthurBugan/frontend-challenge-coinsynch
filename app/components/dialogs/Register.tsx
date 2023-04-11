@@ -98,7 +98,7 @@ const RegisterModal: React.FC = () => {
             type="button"
             onClick={methods.handleSubmit(onSubmit)}
             title="Sign Up"
-            className="w-full disabled:bg-primary-200"
+            className="h-12 w-full disabled:bg-primary-200"
             disabled={methods.formState.isSubmitting}
           />
 
