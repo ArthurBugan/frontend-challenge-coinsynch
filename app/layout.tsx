@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: JSX.Element }) {
           <ToastProvider />
         </ClientOnly>
 
-        <main>{children}</main>
+        <main className="overflow-x-hidden">{children}</main>
       </body>
     </html>
   );
