@@ -1,6 +1,5 @@
 "use client";
 
-import { twMerge } from "tailwind-merge";
 import Button from "./Button";
 import useRegisterModal from "@hooks/useRegisterModal";
 
@@ -10,7 +9,7 @@ interface SignUpProps {
   label?: string;
 }
 
-const SignInButton: React.FC<SignUpProps> = (props) => {
+const SignUpButton: React.FC<SignUpProps> = (props) => {
   const { className, icon, label } = props;
   const registerModal = useRegisterModal();
 
@@ -18,10 +17,10 @@ const SignInButton: React.FC<SignUpProps> = (props) => {
     <Button
       title={label || "Sign up"}
       icon={icon}
-      className={twMerge(className)}
+      className={className}
       onClick={registerModal.onOpen}
     />
   );
 };
 
-export default SignInButton;
+export default SignUpButton;

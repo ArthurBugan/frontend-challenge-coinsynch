@@ -14,7 +14,10 @@ type PropType = {
 type Axis = "x" | "y";
 
 const classNamesOptions = { selected: "active" };
-const wheelGestureOptions = {};
+const wheelGestureOptions = {
+  forceWheelAxis: "y" as Axis,
+  speed: 5,
+};
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
   const { images, options } = props;
@@ -26,7 +29,6 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   ]);
 
   const onSelect = (e: any) => {
-    console.log(emblaApi?.selectedScrollSnap());
     setActive(emblaApi?.selectedScrollSnap() || 0);
   };
 
