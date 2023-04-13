@@ -1,5 +1,7 @@
-import { percent } from "@hooks/format";
+import "server-only";
 
+import { cache } from "react";
+import { percent } from "@hooks/format";
 interface CoinVariation {
   name: string;
   variation?: string;
@@ -16,7 +18,7 @@ interface ExchangeRate {
   rate_close: number;
 }
 
-const getCoinVariation = async (coinVariation: CoinVariation) => {
+const getCoinVariation = cache(async (coinVariation: CoinVariation) => {
   const { name } = coinVariation;
 
   const today = new Date();
@@ -55,7 +57,7 @@ const getCoinVariation = async (coinVariation: CoinVariation) => {
     name,
     variation,
   };
-};
+});
 
 /* @ts-expect-error Async Server Component */
 const CoinVariation: React.FC<CoinVariation> = async (props) => {

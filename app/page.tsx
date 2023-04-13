@@ -65,6 +65,7 @@ export default function Home() {
         </section>
         <div className="left-0 -z-10 mt-10 w-screen">
           <Image
+            priority
             className="w-screen"
             alt="background image for first section"
             src={shape}
@@ -128,6 +129,7 @@ export default function Home() {
           <Container>
             <div className="md:py-15 py-14 xl:pb-28 xl:pt-32">
               <TableTopCrypto
+                headerMobile={["Crypto", "Actions"]}
                 header={["#", "Crypto", "Price", "Change", "Trade"]}
               />
             </div>

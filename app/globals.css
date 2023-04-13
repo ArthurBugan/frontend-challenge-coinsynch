@@ -33,11 +33,11 @@
   }
 
   button {
-    @apply h-8;
+    @apply h-8 rounded-[32px];
   }
 
   button.primary {
-    @apply flex items-center justify-center rounded-[32px];
+    @apply flex items-center justify-center;
   }
 
   button.primary > span {
@@ -45,7 +45,7 @@
   }
 
   button.ghost {
-    @apply rounded-[32px] bg-transparent hover:bg-primary-100;
+    @apply bg-transparent hover:bg-primary-100;
   }
 
   button.ghost > span {

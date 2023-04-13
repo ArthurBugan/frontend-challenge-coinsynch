@@ -7,8 +7,15 @@ const coin = (value: number = 0) =>
 const percent = (value: number = 0) =>
   new Intl.NumberFormat("pt-BR", {
     style: "percent",
-    maximumFractionDigits: 1,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
     signDisplay: "always",
   }).format(value);
 
-export { coin, percent };
+const leading = (value: number = 0) =>
+  value.toLocaleString("en-US", {
+    minimumIntegerDigits: 2,
+    useGrouping: false,
+  });
+
+export { coin, percent, leading };

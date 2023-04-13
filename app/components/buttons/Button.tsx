@@ -2,7 +2,7 @@
 
 import { twMerge } from "tailwind-merge";
 import { useFormContext } from "react-hook-form";
-import { BsArrowRightShort } from "react-icons/bs";
+import { BsArrowRightShort, BsPlus } from "react-icons/bs";
 
 import Loader from "@components/Loader";
 
@@ -10,13 +10,22 @@ interface ButtonProps {
   title: string;
   className?: string;
   disabled?: boolean;
-  icon?: string;
+  icon?: "BsArrowRightShort" | "BsPlus";
+  variant?: "primary" | "";
   type?: "button" | "submit" | "reset" | undefined;
   onClick?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-  const { title, className, onClick, disabled, icon, type = "button" } = props;
+  const {
+    title,
+    className,
+    onClick,
+    disabled,
+    icon,
+    variant = "primary",
+    type = "button",
+  } = props;
 
   // If a button is contained on a FORM we can show the loader
   const formContext = useFormContext();
@@ -24,7 +33,8 @@ const Button: React.FC<ButtonProps> = (props) => {
   return (
     <button
       className={twMerge(
-        "primary bg-primary-500 px-7 hover:bg-primary-600",
+        variant,
+        "bg-primary-500 px-7 hover:bg-primary-600",
         className
       )}
       title={title}
@@ -35,8 +45,11 @@ const Button: React.FC<ButtonProps> = (props) => {
       <span>
         {!formContext?.formState?.isSubmitting && title}
         {formContext?.formState?.isSubmitting && <Loader />}
-        {icon && (
+        {icon === "BsArrowRightShort" && (
           <BsArrowRightShort className="mx-auto -mt-1 ml-2 inline h-6 w-6" />
+        )}
+        {icon === "BsPlus" && (
+          <BsPlus className="mx-auto ml-1 inline h-6 w-6" />
         )}
       </span>
     </button>
