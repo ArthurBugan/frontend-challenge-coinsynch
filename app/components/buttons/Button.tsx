@@ -23,7 +23,10 @@ const Button: React.FC<ButtonProps> = (props) => {
 
   return (
     <button
-      className={twMerge("primary px-7", className)}
+      className={twMerge(
+        "primary bg-primary-500 px-7 hover:bg-primary-600",
+        className
+      )}
       title={title}
       disabled={disabled}
       onClick={onClick}

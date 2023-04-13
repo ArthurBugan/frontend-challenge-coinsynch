@@ -1,3 +1,5 @@
+import { percent } from "@hooks/format";
+
 interface CoinVariation {
   name: string;
   variation?: string;
@@ -26,7 +28,11 @@ const getCoinVariation = async (coinVariation: CoinVariation) => {
   const res: Response = await fetch(
     `https://rest.coinapi.io/v1/exchangerate/${name}/USD/history?period_id=1DAY&apikey=${
       process.env.API_KEY
-    }&time_start=${yesterday.toISOString()}&time_end=${today.toISOString()}`,
+    }&time_start=${yesterday
+      .toISOString()
+      .replace(".000Z", "")}&time_end=${today
+      .toISOString()
+      .replace(".000Z", "")}`,
     {
       next: { revalidate: 6000000 },
     }
@@ -41,14 +47,9 @@ const getCoinVariation = async (coinVariation: CoinVariation) => {
   }
 
   const coinData: ExchangeRate[] = await res.json();
-
-  let signal = "+";
-  if (coinData[0]?.rate_open < coinData[1]?.rate_close) {
-    signal = "-";
-  }
-
-  const variation =
-    signal + (coinData[0]?.rate_open / coinData[1]?.rate_close || 0).toFixed(2);
+  const variation = percent(
+    coinData[0]?.rate_open / coinData[1]?.rate_close / 100
+  );
 
   return {
     name,
@@ -65,7 +66,7 @@ const CoinVariation: React.FC<CoinVariation> = async (props) => {
       data-price={`${variation[0]}`}
       className="whitespace-nowrap data-[price='+']:text-tertiary-700 data-[price='-']:text-quartenary-700"
     >
-      {variation}%
+      {variation}
     </span>
   );
 };

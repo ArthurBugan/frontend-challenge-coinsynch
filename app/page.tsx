@@ -7,6 +7,7 @@ import Navbar from "@components/navbar/Navbar";
 import SignUp from "@components/buttons/Register";
 import Carrousel from "@components/carrousel/Carrousel";
 import Card from "@components/Card";
+import TableTopCrypto from "@components/tables/TableTopCrypto";
 
 import shape from "../public/images/shape.svg";
 
@@ -22,10 +23,7 @@ export default function Home() {
       <Navbar />
 
       <>
-        <section
-          id="hero-carrousel"
-          className="md:pt-15 relative pt-14 xl:pt-40"
-        >
+        <section className="md:pt-15 relative pt-14 xl:pt-40">
           <Container>
             <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-24">
               <div className="flex flex-col items-center gap-y-7 md:items-start">
@@ -72,11 +70,11 @@ export default function Home() {
             src={shape}
           />
         </div>
-        <section className="bg-hero-gradient">
+        <section id="about-us" className="bg-hero-gradient">
           <Container>
             <div className="md:py-15 py-14 xl:pb-28 xl:pt-32">
               <div className="grid grid-cols-1 lg:grid-cols-[1.5fr,1fr]">
-                <div className="order-2 flex flex-row gap-y-8 sm:grid sm:grid-rows-2 lg:order-1">
+                <div className="order-2 flex flex-row gap-y-8 overflow-auto sm:grid sm:grid-rows-2 lg:order-1">
                   <div className="flex flex-row gap-4 sm:grid sm:grid-cols-[1fr,1fr,auto] sm:gap-8">
                     <Card
                       iconType="btc"
@@ -92,7 +90,7 @@ export default function Home() {
                     />
                     <div className="sm:w-3 xl:w-7 2xl:w-14" />
                   </div>
-                  <div className="flex flex-row sm:grid sm:grid-cols-[auto,1fr,1fr] sm:gap-8">
+                  <div className="flex flex-row gap-4 sm:grid sm:grid-cols-[auto,1fr,1fr] sm:gap-8">
                     <div className="sm:w-3 xl:w-7 2xl:w-14" />
                     <Card
                       iconType="graph"
@@ -123,6 +121,15 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+          </Container>
+        </section>
+        <section id="top-cryptos">
+          <Container>
+            <div className="md:py-15 py-14 xl:pb-28 xl:pt-32">
+              <TableTopCrypto
+                header={["#", "Crypto", "Price", "Change", "Trade"]}
+              />
             </div>
           </Container>
         </section>
