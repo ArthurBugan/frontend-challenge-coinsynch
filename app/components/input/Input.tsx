@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { twMerge } from "tailwind-merge";
 import {
   useController,
   useFormContext,
@@ -22,13 +23,23 @@ interface InputProps extends UseControllerProps {
   Icon?: IconType;
   type?: string;
   placeholder: string;
+  className?: string;
   disabled?: boolean;
   formatPrice?: boolean;
   required?: boolean;
 }
 
 const Input: React.FC<InputProps> = (props) => {
-  const { name, label, rules, type, formatPrice, Icon, ...inputProps } = props;
+  const {
+    name,
+    label,
+    rules,
+    type,
+    formatPrice,
+    Icon,
+    className,
+    ...inputProps
+  } = props;
 
   const formContext = useFormContext();
 
@@ -57,7 +68,7 @@ const Input: React.FC<InputProps> = (props) => {
     formatPrice || type === "email" || type === "password" || Icon;
 
   return (
-    <div className="relative h-12 w-full">
+    <div className={twMerge("relative h-12 w-full", className)}>
       <span className="absolute inset-y-0 left-0 flex items-center">
         {Icon && <Icon className="ml-4 h-5 w-5 text-secondary-300" />}
         {formatPrice && (

@@ -41,12 +41,17 @@ const Newsletter: React.FC = () => {
           onSubmit={methods.handleSubmit(onSubmit)}
         >
           <label className="mb-1 text-left text-white">Email</label>
-          <Input placeholder="Email" name="email" type="text" />
+          <Input
+            placeholder="Email"
+            name="email"
+            type="text"
+            className="shadow-xl"
+          />
 
           <Button
             type="submit"
             title="Subscribe"
-            className="mt-6 h-12 w-full disabled:bg-primary-200"
+            className="mt-6 h-12 w-full shadow-xl disabled:bg-primary-200"
             disabled={methods.formState.isSubmitting}
           />
         </form>
