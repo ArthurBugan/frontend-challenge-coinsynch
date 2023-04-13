@@ -29,7 +29,8 @@ module.exports = {
         "card": " 0px 12px 24px rgba(0, 0, 0, 0.05)"
       },
       backgroundImage: {
-        "hero-gradient": "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F7F7F7 100%)"
+        "hero-gradient": "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F7F7F7 100%)",
+        "newsletter-gradient": "linear-gradient(97.85deg, #FBAB34 -5.87%, #AD721A 118.06%)"
       },
       colors: {
         "gray": "#5D6670",

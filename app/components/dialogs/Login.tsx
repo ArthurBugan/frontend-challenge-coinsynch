@@ -56,7 +56,10 @@ const Modal: React.FC = () => {
         </span>
       </h4>
       <FormProvider {...methods}>
-        <form className="flex flex-col items-center gap-y-6">
+        <form
+          className="flex flex-col items-center gap-y-6"
+          onSubmit={methods.handleSubmit(onSubmit)}
+        >
           <Input placeholder="Email" name="email" type="email" />
           <Input placeholder="Password" name="password" type="password" />
 
@@ -65,8 +68,7 @@ const Modal: React.FC = () => {
           </label>
 
           <Button
-            type="button"
-            onClick={methods.handleSubmit(onSubmit)}
+            type="submit"
             title="Sign in"
             className="h-12 w-full disabled:bg-primary-200"
             disabled={methods.formState.isSubmitting}

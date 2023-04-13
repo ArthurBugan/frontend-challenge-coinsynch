@@ -8,8 +8,11 @@ import SignUp from "@components/buttons/Register";
 import Carrousel from "@components/carrousel/Carrousel";
 import Card from "@components/Card";
 import TableTopCrypto from "@components/tables/TableTopCrypto";
+import Newsletter from "@components/NewsLetter";
 
 import shape from "../public/images/shape.svg";
+import logo from "../public/images/logo.svg";
+import newsletterShape from "../public/images/newsletter-shape.svg";
 
 import boy from "../public/images/boy.webp";
 import girl from "../public/images/girl.webp";
@@ -135,6 +138,49 @@ export default function Home() {
             </div>
           </Container>
         </section>
+        <section className="relative bg-newsletter-gradient">
+          <div className="md:py-15 z-10 py-14 xl:pb-28 xl:pt-32">
+            <div className="absolute left-0 top-0 z-10 h-full w-screen">
+              <Image
+                priority
+                className="h-full w-full object-cover"
+                alt="background image for first section"
+                src={newsletterShape}
+              />
+            </div>
+
+            <Container>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:gap-x-8 lg:gap-x-60">
+                <div className="z-20 mb-10 sm:mb-0 lg:ml-20">
+                  <h4 className="mb-1 font-bold text-primary-200">
+                    Lorem ipsum
+                  </h4>
+                  <h2 className="mb-4 font-bold text-white">Lorem upsum</h2>
+                  <p className="font-normal text-white">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                    aliquam, purus sit amet luctus venenatis, lectus magna
+                    fringilla urna, porttitor
+                  </p>
+                </div>
+                <div className="z-20 my-auto lg:mr-20">
+                  <Newsletter />
+                </div>
+              </div>
+            </Container>
+          </div>
+        </section>
+        <footer className="bg-white">
+          <Container>
+            <div className="my-6 flex flex-col items-center justify-between sm:flex-row">
+              <p className="hidden sm:block">
+                Copyright © 2022 - All rights reserved
+              </p>
+              <div>
+                <Image alt="Logo" src={logo} />
+              </div>
+            </div>
+          </Container>
+        </footer>
       </>
     </>
   );

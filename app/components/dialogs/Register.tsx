@@ -68,7 +68,10 @@ const RegisterModal: React.FC = () => {
         </span>
       </h4>
       <FormProvider {...methods}>
-        <form className="flex flex-col items-center gap-y-6">
+        <form
+          className="flex flex-col items-center gap-y-6"
+          onSubmit={methods.handleSubmit(onSubmit)}
+        >
           <Input
             Icon={BsPerson}
             placeholder="Name"
@@ -95,8 +98,7 @@ const RegisterModal: React.FC = () => {
           />
 
           <Button
-            type="button"
-            onClick={methods.handleSubmit(onSubmit)}
+            type="submit"
             title="Sign Up"
             className="h-12 w-full disabled:bg-primary-200"
             disabled={methods.formState.isSubmitting}
