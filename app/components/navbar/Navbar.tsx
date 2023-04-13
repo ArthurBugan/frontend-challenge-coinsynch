@@ -1,3 +1,5 @@
+import { CgMenuRound } from "react-icons/cg";
+
 import Container from "@components/Container";
 import SignIn from "@components/buttons/SignIn";
 import Register from "@components/buttons/Register";
@@ -26,7 +28,11 @@ const Navbar = () => {
               </div>
             </div>
 
-            <PopMenu>
+            <PopMenu
+              item={
+                <CgMenuRound className="h-7 w-7 text-secondary-500 hover:text-secondary-600" />
+              }
+            >
               <div className="fixed right-4 z-10 grid grid-cols-1 space-y-2 rounded-md bg-white p-5 shadow-md">
                 <MenuItemSignIn />
                 <MenuItemSignUp />

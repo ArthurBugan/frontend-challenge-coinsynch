@@ -1,10 +1,17 @@
-type IconTypes = "btc" | "solutions" | "graph" | "computer";
+export type IconTypes = "btc" | "solutions" | "graph" | "computer" | "wallet";
 
-const Icons: { [icon in IconTypes]: () => JSX.Element } = {
-  btc: () => (
+interface ImageProps {
+  width?: number;
+  height?: number;
+}
+
+export const Icons: {
+  [icon in IconTypes]: (props: ImageProps) => JSX.Element;
+} = {
+  btc: ({ width, height }: ImageProps) => (
     <svg
-      width="64"
-      height="64"
+      width={width || 64}
+      height={height || 64}
       viewBox="0 0 64 64"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -65,10 +72,10 @@ const Icons: { [icon in IconTypes]: () => JSX.Element } = {
       />
     </svg>
   ),
-  solutions: () => (
+  solutions: ({ width, height }: ImageProps) => (
     <svg
-      width="64"
-      height="64"
+      width={width || 64}
+      height={height || 64}
       viewBox="0 0 64 64"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -105,10 +112,10 @@ const Icons: { [icon in IconTypes]: () => JSX.Element } = {
       />
     </svg>
   ),
-  graph: () => (
+  graph: ({ width, height }: ImageProps) => (
     <svg
-      width="64"
-      height="64"
+      width={width || 64}
+      height={height || 64}
       viewBox="0 0 64 64"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -127,10 +134,10 @@ const Icons: { [icon in IconTypes]: () => JSX.Element } = {
       />
     </svg>
   ),
-  computer: () => (
+  computer: ({ width, height }: ImageProps) => (
     <svg
-      width="64"
-      height="64"
+      width={width || 64}
+      height={height || 64}
       viewBox="0 0 64 64"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -140,6 +147,85 @@ const Icons: { [icon in IconTypes]: () => JSX.Element } = {
         clipRule="evenodd"
         d="M13.3335 6.5C9.55839 6.5 6.50015 9.55824 6.50015 13.3333V38.7784C4.94044 39.3808 3.8335 40.895 3.8335 42.6667V45.3333C3.8335 47.6338 5.69974 49.5 8.00016 49.5H38.5002V53.3333C38.5002 55.6338 40.3664 57.5 42.6668 57.5H56.0002C58.3006 57.5 60.1668 55.6338 60.1668 53.3333V30.6667C60.1668 28.3662 58.3006 26.5 56.0002 26.5H54.8335V13.3333C54.8335 9.55824 51.7752 6.5 48.0001 6.5H13.3335ZM57.1668 46.5V30.6667C57.1668 30.0231 56.6437 29.5 56.0002 29.5H42.6668C42.0232 29.5 41.5002 30.0231 41.5002 30.6667V39.9941L41.5002 40L41.5002 40.0059V46.5H57.1668ZM41.5002 49.5H57.1668V53.3333C57.1668 53.9769 56.6437 54.5 56.0002 54.5H42.6668C42.0232 54.5 41.5002 53.9769 41.5002 53.3333V49.5ZM51.8335 13.3333V26.5H42.6668C40.3664 26.5 38.5002 28.3662 38.5002 30.6667V38.5H9.50015V13.3333C9.50015 11.2151 11.2152 9.5 13.3335 9.5H48.0001C50.1184 9.5 51.8335 11.2151 51.8335 13.3333ZM8.00016 41.5H38.5002V46.5H8.00016C7.35659 46.5 6.8335 45.9769 6.8335 45.3333V42.6667C6.8335 42.0231 7.35659 41.5 8.00016 41.5Z"
         fill="#FBAB34"
+      />
+    </svg>
+  ),
+  wallet: ({ width, height }: ImageProps) => (
+    <svg
+      width={width || 34}
+      height={height || 34}
+      viewBox="0 0 34 34"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M29.0051 13.6653V9.66364C29.0051 7.82192 27.5121 6.32892 25.6704 6.32892H8.32984C6.48812 6.32892 4.99512 7.82192 4.99512 9.66364V14.3323"
+        stroke="#FBAB34"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M29.0051 20.3347V24.3364C29.0051 26.1781 27.5121 27.6711 25.6704 27.6711H15.6663"
+        stroke="#FBAB34"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4.99507 27.6711V19.6678"
+        stroke="#FBAB34"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M7.74336 18.3339V19.6678"
+        stroke="#FBAB34"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M7.74336 27.6711V29.005"
+        stroke="#FBAB34"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4.99512 23.6694H9.66373C10.7688 23.6694 11.6646 24.5652 11.6646 25.6703V25.6703C11.6646 26.7753 10.7688 27.6711 9.66373 27.6711H4.99512V23.6694Z"
+        stroke="#FBAB34"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4.99512 19.6678H9.19687C10.3019 19.6678 11.1977 20.5636 11.1977 21.6686V21.6686C11.1977 22.7736 10.3019 23.6695 9.19687 23.6695H4.99512V19.6678Z"
+        stroke="#FBAB34"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25.6704 13.6653H29.0051C29.7418 13.6653 30.339 14.2625 30.339 14.9992V19.0008C30.339 19.7375 29.7418 20.3347 29.0051 20.3347H25.6704C23.8287 20.3347 22.3357 18.8417 22.3357 17V17C22.3357 15.1583 23.8287 13.6653 25.6704 13.6653V13.6653Z"
+        stroke="#FBAB34"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M11.6646 12.9984H18.334"
+        stroke="#FBAB34"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   ),

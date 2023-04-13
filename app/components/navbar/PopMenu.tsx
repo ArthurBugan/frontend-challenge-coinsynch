@@ -1,24 +1,32 @@
 "use client";
 
-import { CgMenuRound } from "react-icons/cg";
+import { twMerge } from "tailwind-merge";
 import { Popover } from "@headlessui/react";
 
 interface PopMenuProps {
   children: JSX.Element;
+  item: JSX.Element;
+  className?: string;
+  position?: string;
 }
 
 const PopMenu: React.FC<PopMenuProps> = (props) => {
-  const { children } = props;
+  const { children, item, className, position } = props;
 
   return (
-    <Popover className="relative md:hidden">
+    <Popover className={twMerge("group relative md:hidden", className)}>
       <Popover.Button
         className="focus:outline-none"
         aria-label="navbar navigation"
       >
-        <CgMenuRound className="h-7 w-7 text-secondary-500 hover:text-secondary-600" />
+        {item}
       </Popover.Button>
-      <Popover.Panel>{children}</Popover.Panel>
+      <Popover.Panel className="relative">
+        <>
+          <span className="absolute left-1/2 -translate-x-1/2 border-[6px] border-t-0 border-b-neutral-900 border-l-transparent border-r-transparent group-active:inline-block" />
+          {children}
+        </>
+      </Popover.Panel>
     </Popover>
   );
 };

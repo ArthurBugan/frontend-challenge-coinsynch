@@ -5,7 +5,7 @@ import useRegisterModal from "@hooks/useRegisterModal";
 
 interface SignUpProps {
   className?: string;
-  icon?: string;
+  icon?: "BsArrowRightShort" | "BsPlus";
   label?: string;
 }
 
