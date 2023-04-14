@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { StaticImageData } from "next/image";
 import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
@@ -32,9 +33,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     setActive(emblaApi?.selectedScrollSnap() || 0);
   };
 
-  useEffect(() => {
-    emblaApi?.on("select", onSelect);
-  }, [emblaApi]);
+  emblaApi?.on("select", onSelect);
 
   return (
     <div className="embla">
@@ -46,7 +45,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
               className="embla__slide data-[prev='true']:invisible"
               key={item.src}
             >
-              <img
+              <Image
                 className="embla__slide__img"
                 src={item.src}
                 alt="Image Carrousel Home"

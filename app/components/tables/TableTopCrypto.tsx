@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { HiChevronUp } from "react-icons/hi";
 
-import type { Coin } from "@components/navbar/CoinCarrousel";
-import { getCoins } from "@components/navbar/CoinCarrousel";
 import Button from "@components/buttons/Button";
 import Disclosure from "@components/Disclosure";
 
 import { coin, leading } from "@hooks/format";
+import type { Coin } from "@utils/getCoins";
+import { getCoins } from "@utils/getCoins";
 
 import CoinVariation from "../CoinVariation";
 import Table from "./Table";

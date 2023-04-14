@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import Dialog from "./Dialog";
-import Input from "@components/input/Input";
+import Input from "@components/inputs/Input";
 import Button from "@components/buttons/Button";
 import useLoginModal from "@hooks/useLoginModal";
 import useRegisterModal from "@hooks/useRegisterModal";

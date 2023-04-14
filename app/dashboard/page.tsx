@@ -4,6 +4,7 @@ import { BsPlus } from "react-icons/bs";
 import ETHGraph from "@components/chart/ETHChart";
 import CoinTrade from "@components/cointrade/CoinTrade";
 import CoinVariation from "@components/CoinVariation";
+import { coin } from "@hooks/format";
 
 import balance from "../../public/images/balance.webp";
 
@@ -37,8 +38,8 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="flex flex-1 flex-row items-center justify-center bg-primary-100 p-2 md:p-4">
-              <h3 className="hidden font-bold md:block">$32,256.56</h3>
-              <p className="block font-bold md:hidden">$32,256.56</p>
+              <h3 className="hidden font-bold md:block">{coin(32256.0)}</h3>
+              <p className="block font-bold md:hidden">{coin(32256.0)}</p>
             </div>
           </div>
         </div>
@@ -64,7 +65,7 @@ export default function Dashboard() {
         <div className="col-span-2 flex flex-col rounded-lg bg-white shadow-md md:flex-row lg:col-span-1">
           <div className="flex-1 p-2 md:p-4">
             <div className="flex flex-col">
-              <label className="font-bold">NFT's NEWS</label>
+              <label className="font-bold">NFT&apos;s NEWS</label>
               <small className="mb-1 mt-1 leading-4 text-secondary-500 md:mb-3">
                 New ElephantX NFT to be lauched!
               </small>
@@ -78,7 +79,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="h-24 bg-[url('/images/elephant.webp')] bg-cover bg-center bg-no-repeat md:h-auto md:flex-1">
-            &nbsp;
+            {" "}
           </div>
         </div>
       </div>

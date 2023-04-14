@@ -1,6 +1,6 @@
 import Graph from "./Chart";
 
-import { getCoinData } from "@components/CoinVariation";
+import { getCoinData } from "@utils/getCoinVariation";
 
 /* @ts-expect-error Async Server Component */
 const ETHChart: React.FC<LineProps> = async () => {
@@ -15,8 +15,6 @@ const ETHChart: React.FC<LineProps> = async () => {
     timeStart: lastWeek,
     timeEnd: today,
   });
-
-  console.log(variation, "variation");
 
   return <Graph variation={variation} />;
 };

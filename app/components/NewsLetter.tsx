@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
-import Input from "@components/input/Input";
+import Input from "@components/inputs/Input";
 import Button from "@components/buttons/Button";
 
 const schema = z.object({

@@ -47,7 +47,7 @@ const Input: React.FC<InputProps> = (props) => {
     field,
     fieldState: { invalid, isTouched, isDirty, error },
     formState: { isSubmitting },
-  } = useController({ name, rules });
+  } = useController({ name });
 
   const [passwordVisibility, changePasswordVisibility] =
     useState<boolean>(true);

@@ -32,6 +32,9 @@
       ],
       "@provider/*": [
         "./app/provider/*"
+      ],
+      "@utils/*": [
+        "./app/utils/*"
       ]
     }
   },

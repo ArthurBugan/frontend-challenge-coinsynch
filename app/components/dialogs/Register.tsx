@@ -7,8 +7,8 @@ import * as z from "zod";
 import { BsPerson } from "react-icons/bs";
 
 import Dialog from "./Dialog";
-import Input from "@components/input/Input";
-import Checkbox from "@components/input/Checkbox";
+import Input from "@components/inputs/Input";
+import Checkbox from "@components/inputs/Checkbox";
 import Button from "@components/buttons/Button";
 import useLoginModal from "@hooks/useLoginModal";
 import useRegisterModal from "@hooks/useRegisterModal";

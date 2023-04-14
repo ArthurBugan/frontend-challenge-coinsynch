@@ -2,6 +2,7 @@ const coin = (value: number = 0) =>
   new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "USD",
+    useGrouping: true,
   }).format(value);
 
 const percent = (value: number = 0) =>

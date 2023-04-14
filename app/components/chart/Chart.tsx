@@ -4,7 +4,7 @@ import type { ChartOptions } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 
-import type { ExchangeRate } from "@components/CoinVariation";
+import type { ExchangeRate } from "@utils/getCoinVariation";
 
 Chart.register(...registerables);
 
