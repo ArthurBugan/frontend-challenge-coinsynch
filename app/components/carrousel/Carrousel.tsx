@@ -46,7 +46,9 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
               key={item.src}
             >
               <Image
-                className="embla__slide__img"
+                className="embla__slide__img h-full w-full"
+                height={300}
+                width={300}
                 src={item.src}
                 alt="Image Carrousel Home"
               />

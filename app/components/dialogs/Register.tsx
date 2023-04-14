@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useForm, FormProvider } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -33,6 +34,7 @@ export type Schema = z.infer<typeof schema>;
 const RegisterModal: React.FC = () => {
   const login = useLoginModal();
   const register = useRegisterModal();
+  const router = useRouter();
 
   const { ...methods } = useForm<Schema>({
     mode: "all",
@@ -51,6 +53,7 @@ const RegisterModal: React.FC = () => {
     toast.success("All fine!");
     setTimeout(() => {
       register.onClose();
+      router.push("/dashboard");
     }, 300);
   };
 
