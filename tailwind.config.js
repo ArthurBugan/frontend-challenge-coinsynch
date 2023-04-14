@@ -26,7 +26,8 @@ module.exports = {
       },
       boxShadow: {
         "menu": "0px 4px 8px rgba(77, 77, 77, 0.1)",
-        "card": " 0px 12px 24px rgba(0, 0, 0, 0.05)"
+        "card": " 0px 12px 24px rgba(0, 0, 0, 0.05)",
+        "trade": "0px 8px 16px rgba(0, 0, 0, 0.1)"
       },
       backgroundImage: {
         "hero-gradient": "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F7F7F7 100%)",

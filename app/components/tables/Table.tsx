@@ -40,6 +40,7 @@ const Table: React.FC<TableProps> = (props) => {
         <Button
           title={mini ? "View More" : "View Less"}
           icon="BsPlus"
+          iconRight
           variant=""
           onClick={toggleMini}
           className="flex items-center justify-center bg-transparent text-primary-500 hover:bg-primary-100"

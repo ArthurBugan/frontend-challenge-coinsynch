@@ -14,6 +14,8 @@ interface ButtonProps {
   variant?: "primary" | "";
   type?: "button" | "submit" | "reset" | undefined;
   onClick?: () => void;
+  iconLeft?: boolean;
+  iconRight?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
@@ -25,6 +27,8 @@ const Button: React.FC<ButtonProps> = (props) => {
     icon,
     variant = "primary",
     type = "button",
+    iconLeft = false,
+    iconRight = false,
   } = props;
 
   // If a button is contained on a FORM we can show the loader
@@ -43,12 +47,15 @@ const Button: React.FC<ButtonProps> = (props) => {
       type={type}
     >
       <span>
+        {icon === "BsPlus" && iconLeft && (
+          <BsPlus className="mx-auto ml-1 inline h-6 w-6" />
+        )}
         {!formContext?.formState?.isSubmitting && title}
         {formContext?.formState?.isSubmitting && <Loader />}
         {icon === "BsArrowRightShort" && (
           <BsArrowRightShort className="mx-auto -mt-1 ml-2 inline h-6 w-6" />
         )}
-        {icon === "BsPlus" && (
+        {icon === "BsPlus" && iconRight && (
           <BsPlus className="mx-auto ml-1 inline h-6 w-6" />
         )}
       </span>

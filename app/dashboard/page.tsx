@@ -2,9 +2,10 @@ import Image from "next/image";
 import { BsPlus } from "react-icons/bs";
 
 import ETHGraph from "@components/chart/ETHChart";
+import CoinTrade from "@components/cointrade/CoinTrade";
+import CoinVariation from "@components/CoinVariation";
 
 import balance from "../../public/images/balance.webp";
-import CoinVariation from "@components/CoinVariation";
 
 export default function Dashboard() {
   return (
@@ -81,6 +82,8 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      <CoinTrade />
     </div>
   );
 }

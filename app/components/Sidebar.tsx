@@ -37,13 +37,13 @@ const Sidebar = () => {
   return (
     <div
       className={twMerge(
-        "group absolute min-h-screen shadow-menu lg:relative lg:flex",
+        "group absolute h-full min-h-screen shadow-menu lg:relative lg:flex",
         !sidebar.isOpen && "hidden"
       )}
     >
       <div
         className={twMerge(
-          "absolute inset-y-0 left-0 w-0 -translate-x-full space-y-6 border-t-2 border-t-secondary-300 bg-white text-primary-500 transition duration-200 ease-in-out lg:relative lg:w-20 lg:translate-x-0",
+          "absolute inset-y-0 left-0 w-0 -translate-x-full space-y-6 border-y-2 border-y-secondary-300 bg-white text-primary-500 transition duration-200 ease-in-out lg:relative lg:w-20 lg:translate-x-0",
           sidebar.isOpen && "absolute w-64 translate-x-0"
         )}
       >
