@@ -60,7 +60,7 @@ const Sidebar = () => {
             const Icon = Icons[i.iconType];
 
             return (
-              <>
+              <div key={i.iconType}>
                 <Tooltip
                   place="right"
                   className="bg-primary-500 shadow-lg"
@@ -69,7 +69,6 @@ const Sidebar = () => {
                   <div className="px-4 py-2">Lorem Ipsum</div>
                 </Tooltip>
                 <a
-                  key={i.iconType}
                   href="#"
                   data-tooltip-id={`my-tooltip-${index}`}
                   className={twMerge(
@@ -89,7 +88,7 @@ const Sidebar = () => {
                     {i.title}
                   </span>
                 </a>
-              </>
+              </div>
             );
           })}
 

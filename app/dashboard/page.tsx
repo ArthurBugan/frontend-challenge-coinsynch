@@ -46,8 +46,8 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="col-span-2 flex flex-row rounded-lg bg-white p-2 shadow-md md:p-4 lg:col-span-1">
-          <div className="flex flex-1 flex-col">
+        <div className="col-span-2 flex flex-col rounded-lg bg-white p-2 shadow-md md:flex-row md:p-4 lg:col-span-1">
+          <div className="mr-2 flex flex-[.3] flex-col">
             <small className="text-secondary-500">Daily Variation</small>
             <div className="mt-2 flex flex-row">
               <Image
@@ -57,11 +57,18 @@ export default function Dashboard() {
                 alt="Ethereum Logo"
                 src="https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_32/604ae4533d9f4ad09a489905cce617c2.png"
               />
-              <label>ETH</label>
+              <label className="mr-4">ETH</label>
+              <div className="block md:hidden">
+                <CoinVariation name="ETH" />
+              </div>
             </div>
-            <CoinVariation name="ETH" />
+            <div className="hidden md:block">
+              <CoinVariation name="ETH" />
+            </div>
           </div>
-          <div>Graph</div>
+          <div className="flex-1">
+            <ETHGraph />
+          </div>
         </div>
 
         <div className="col-span-2 flex flex-col rounded-lg bg-white shadow-md md:flex-row lg:col-span-1">
