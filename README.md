@@ -84,6 +84,7 @@ To get a local copy up and running follow these simple steps.
 5. Enter your API in `.env.local`
    ```js
    API_KEY = "ENTER YOUR API";
+   ASSETS_ID = "BTC;ETH;DOGE;XRP;XMR;DOT;LTC;ADA;THETA;ETC;";
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

@@ -1,3 +1,5 @@
+import "react-tooltip/dist/react-tooltip.css";
+
 import Image from "next/image";
 import { BsPlus } from "react-icons/bs";
 

@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 
 import Image from "next/image";
+import { Tooltip } from "react-tooltip";
 
 import { Icons } from "@components/Card";
 import Button from "@components/buttons/Button";
@@ -87,7 +88,15 @@ const TableHoldings: React.FC<TableProps> = (props) => {
                 </td>
                 <td>
                   <div className="flex items-center justify-center">
+                    <Tooltip
+                      place="bottom"
+                      className="bg-primary-500 shadow-lg"
+                      id="my-tooltip"
+                    >
+                      <div className="px-4 py-2">Transfer Crypto</div>
+                    </Tooltip>
                     <button
+                      data-tooltip-id="my-tooltip"
                       onClick={() => {
                         tableModal.onOpen();
                         trade.selectCrypto(index);

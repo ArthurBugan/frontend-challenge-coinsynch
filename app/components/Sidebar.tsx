@@ -2,6 +2,7 @@
 
 import { twMerge } from "tailwind-merge";
 import { BsArrowLeftCircle } from "react-icons/bs";
+import { Tooltip } from "react-tooltip";
 
 import { Icons } from "@components/Card";
 import type { IconTypes } from "@components/Card";
@@ -41,6 +42,13 @@ const Sidebar = () => {
         !sidebar.isOpen && "hidden"
       )}
     >
+      {sidebar.isOpen && (
+        <div
+          className="fixed inset-0 bg-black/30 lg:hidden"
+          aria-hidden="true"
+        />
+      )}
+
       <div
         className={twMerge(
           "absolute inset-y-0 left-0 w-0 -translate-x-full space-y-6 border-y-2 border-y-secondary-300 bg-white text-primary-500 transition duration-200 ease-in-out lg:relative lg:w-20 lg:translate-x-0",
@@ -48,30 +56,40 @@ const Sidebar = () => {
         )}
       >
         <nav className="flex flex-col py-5">
-          {items.map((i) => {
+          {items.map((i, index) => {
             const Icon = Icons[i.iconType];
 
             return (
-              <a
-                key={i.iconType}
-                href="#"
-                className={twMerge(
-                  "my-3 flex flex-row items-center justify-center rounded py-2.5 text-gray transition duration-200 hover:bg-primary-100",
-                  sidebar.isOpen && "mx-3 justify-start px-4"
-                )}
-              >
-                <div className="h-8 w-8">
-                  <Icon height={34} width={34} />
-                </div>
-                <span
+              <>
+                <Tooltip
+                  place="right"
+                  className="bg-primary-500 shadow-lg"
+                  id={`my-tooltip-${index}`}
+                >
+                  <div className="px-4 py-2">Lorem Ipsum</div>
+                </Tooltip>
+                <a
+                  key={i.iconType}
+                  href="#"
+                  data-tooltip-id={`my-tooltip-${index}`}
                   className={twMerge(
-                    "hidden",
-                    sidebar.isOpen && "mx-3 block px-4"
+                    "my-3 flex flex-row items-center justify-center rounded py-2.5 text-gray transition duration-200 hover:bg-primary-100",
+                    sidebar.isOpen && "mx-3 justify-start px-4"
                   )}
                 >
-                  {i.title}
-                </span>
-              </a>
+                  <div className="h-8 w-8">
+                    <Icon height={34} width={34} />
+                  </div>
+                  <span
+                    className={twMerge(
+                      "hidden",
+                      sidebar.isOpen && "mx-3 block px-4 lg:hidden"
+                    )}
+                  >
+                    {i.title}
+                  </span>
+                </a>
+              </>
             );
           })}
 
