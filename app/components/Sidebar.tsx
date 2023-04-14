@@ -37,14 +37,14 @@ const Sidebar = () => {
   return (
     <div
       className={twMerge(
-        "group relative min-h-screen shadow-menu md:flex",
+        "group absolute min-h-screen shadow-menu lg:relative lg:flex",
         !sidebar.isOpen && "hidden"
       )}
     >
       <div
         className={twMerge(
           "absolute inset-y-0 left-0 w-0 -translate-x-full space-y-6 border-t-2 border-t-secondary-300 bg-white text-primary-500 transition duration-200 ease-in-out lg:relative lg:w-20 lg:translate-x-0",
-          sidebar.isOpen && "relative w-64 translate-x-0"
+          sidebar.isOpen && "absolute w-64 translate-x-0"
         )}
       >
         <nav className="flex flex-col py-5">

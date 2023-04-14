@@ -49,7 +49,7 @@ const Navbar = () => {
               </div>
             }
           >
-            <div className="fixed right-5 z-10 cursor-pointer rounded-lg bg-white p-5 shadow-lg">
+            <div className="fixed right-5 z-10 cursor-pointer rounded-lg bg-white p-5 shadow-lg hover:bg-primary-100">
               <div className="flex justify-between gap-x-4 ">
                 <TbDoorExit className="h-5 w-5" />
                 <label className="cursor-pointer">Logout</label>

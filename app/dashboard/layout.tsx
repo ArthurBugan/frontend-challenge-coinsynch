@@ -1,5 +1,5 @@
 import AuthNavbar from "@components/navbar/AuthNavbar";
-import Sidebar from "./Sidebar";
+import Sidebar from "@components/Sidebar";
 
 export const metadata = {
   title: "CoinSynch Dashboard",
