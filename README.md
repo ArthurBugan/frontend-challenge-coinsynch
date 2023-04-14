@@ -14,7 +14,7 @@
   <p align="center">
     Crypto landing page and dashboard
     <br />
-    <a href="">View Demo</a>
+    <a href="https://frontend-challenge-coinsynch.vercel.app/">View Demo</a>
   </p>
 </div>
 

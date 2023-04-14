@@ -26,7 +26,7 @@ export const getCoinVariation = cache(async (coinVariation: CoinVariation) => {
   today.setHours(0, 0, 0, 0);
   const yesterday = new Date(today);
   yesterday.setHours(0, 0, 0, 0);
-  yesterday.setDate(yesterday.getDate() - 1);
+  yesterday.setDate(yesterday.getDate() - 2);
 
   const res: Response = await fetch(
     `https://rest.coinapi.io/v1/exchangerate/${name.toUpperCase()}/USD/history?period_id=1DAY&apikey=${
@@ -55,14 +55,6 @@ export const getCoinVariation = cache(async (coinVariation: CoinVariation) => {
   );
 
   return {
-    request: `https://rest.coinapi.io/v1/exchangerate/${name.toUpperCase()}/USD/history?period_id=1DAY&apikey=${
-      process.env.API_KEY
-    }&time_start=${yesterday
-      .toISOString()
-      .replace(".000Z", "")}&time_end=${today
-      .toISOString()
-      .replace(".000Z", "")}`,
-    coinData,
     name,
     variation,
   };
