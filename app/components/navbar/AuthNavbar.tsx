@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <header className="relative bg-white px-7 py-5 shadow-menu md:px-10">
       <div className="flex flex-row items-center justify-center">
-        <div className="order-2 mx-auto">
+        <div className="order-2 mx-auto lg:ml-0">
           <Logo />
         </div>
 

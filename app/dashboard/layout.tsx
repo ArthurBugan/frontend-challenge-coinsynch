@@ -1,6 +1,11 @@
 import AuthNavbar from "@components/navbar/AuthNavbar";
 import Sidebar from "./Sidebar";
 
+export const metadata = {
+  title: "CoinSynch Dashboard",
+  description: "The best place to manage your crypto!",
+};
+
 export default function DashboardLayout({
   children,
 }: {
