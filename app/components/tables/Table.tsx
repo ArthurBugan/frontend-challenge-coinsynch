@@ -34,7 +34,7 @@ const Table: React.FC<TableProps> = (props) => {
               <th
                 key={h}
                 className={twMerge(
-                  "p-2 text-left first-of-type:pl-6 last-of-type:w-16 md:first-of-type:w-20 md:last-of-type:w-28",
+                  "p-2 text-left first-of-type:pl-6 last-of-type:w-16 sm:first-of-type:w-20 md:last-of-type:w-28",
                   hideViewMore && "last:text-center"
                 )}
               >

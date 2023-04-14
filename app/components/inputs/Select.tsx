@@ -16,7 +16,7 @@ import { Coin } from "@utils/getCoins";
 export interface SelectProps extends UseControllerProps {
   name: string;
   placeholder?: string;
-  data?: [];
+  data: any[];
   valueKey: string;
   labelKey: string;
   displayValue: (data: any) => string;
@@ -126,7 +126,7 @@ const Select: React.FC<SelectProps> = (props) => {
                   <Combobox.Option
                     key={data?.[valueKey]}
                     className={({ active, selected }) =>
-                      `relative cursor-default select-none border-b border-secondary-200 py-4 pl-4 pr-4 last-of-type:border-b-0 ${
+                      `relative cursor-pointer select-none border-b border-secondary-200 py-4 pl-4 pr-4 last-of-type:border-b-0 ${
                         selected ? "bg-primary-100" : "text-gray"
                       }`
                     }

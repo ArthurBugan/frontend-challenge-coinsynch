@@ -16,18 +16,29 @@ const CoinTrade = () => {
   const trade = useTradeStore();
 
   return (
-    <div className="bg-white shadow-trade">
+    <div className="border-t-2 border-t-secondary-300 md:border-t-0 md:bg-white md:shadow-trade">
       <div className="flex flex-row justify-between border-b border-b-secondary-200 p-6">
         <div className="flex flex-row">
           <Icons.wallet width={32} height={32} />
           <h4 className="ml-4 font-bold text-gray">My wallet</h4>
         </div>
-        <Button
-          onClick={addCrypto.onOpen}
-          title="Add crypto"
-          icon="BsPlus"
-          iconLeft
-        />
+        <div className="hidden lg:block">
+          <Button
+            onClick={addCrypto.onOpen}
+            title="Add crypto"
+            icon="BsPlus"
+            iconLeft
+          />
+        </div>
+        <div className="block lg:hidden">
+          <Button
+            className="flex h-10 w-10 items-center justify-center rounded-full px-2"
+            onClick={addCrypto.onOpen}
+            title=""
+            iconLeft
+            icon="BsPlus"
+          />
+        </div>
       </div>
       {!trade.data.length && (
         <div className="flex flex-col items-center justify-center py-20">
@@ -40,7 +51,7 @@ const CoinTrade = () => {
       )}
 
       {!!trade.data.length && (
-        <div className="hidden lg:block">
+        <div>
           <TableHoldings
             headerMobile={[]}
             items={trade.data}

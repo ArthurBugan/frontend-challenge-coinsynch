@@ -48,7 +48,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     >
       <span>
         {icon === "BsPlus" && iconLeft && (
-          <BsPlus className="mx-auto ml-1 inline h-6 w-6" />
+          <BsPlus className="mx-auto inline h-6 w-6" />
         )}
         {!formContext?.formState?.isSubmitting && title}
         {formContext?.formState?.isSubmitting && <Loader />}

@@ -17,7 +17,7 @@ export default function DashboardLayout({
       <AuthNavbar />
 
       <div className="relative">
-        <div className="flex">
+        <div className="flex min-h-screen lg:min-h-max">
           <Sidebar />
           {children}
         </div>
