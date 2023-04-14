@@ -38,7 +38,7 @@ const Sidebar = () => {
   return (
     <div
       className={twMerge(
-        "group absolute h-full min-h-screen shadow-menu lg:relative lg:flex",
+        "group absolute z-50 h-full min-h-screen shadow-menu lg:relative lg:flex",
         !sidebar.isOpen && "hidden"
       )}
     >

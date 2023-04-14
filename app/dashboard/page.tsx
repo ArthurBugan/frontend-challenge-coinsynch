@@ -16,7 +16,7 @@ export default function Dashboard() {
       <div className="mb-8 grid grid-cols-4 gap-x-4 gap-y-4 md:gap-x-8 md:gap-y-6 lg:h-28 lg:auto-rows-fr lg:grid-cols-[2fr,280px,280px] xl:grid-cols-[2fr,1fr,1fr]">
         <div className="col-span-4 rounded-lg shadow-md lg:col-span-1">
           <div className="grid h-full grid-cols-2">
-            <div className=" flex flex-row items-center justify-center gap-x-4 bg-white p-2 md:justify-start md:p-4">
+            <div className="flex flex-row items-center justify-center gap-x-4 bg-white p-4 md:justify-start md:p-6">
               <div className="h-8 w-8 md:h-16 md:w-16">
                 <Image
                   className="h-8 w-8 object-contain md:h-16 md:w-16"
