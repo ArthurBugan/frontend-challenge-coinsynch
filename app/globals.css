@@ -91,3 +91,7 @@
 .embla__slide:not(.active) {
   opacity: 50%;
 }
+
+.react-tooltip {
+  background-color: #fbab34;
+}
